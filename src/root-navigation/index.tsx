@@ -2,15 +2,10 @@ import React, {Component, ReactElement} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {Navigations} from '@types';
-import {Onboarding, AuthNavigation, MainNavigation} from '@modules';
+import {MainNavigation, Onboarding} from '@modules';
 import {observer} from 'mobx-react';
 import {Message, Modal} from '@components';
-import {
-  authStore,
-  modalStore,
-  noticeMessageStore,
-  onboardingStore,
-} from '@stores';
+import {modalStore, noticeMessageStore, onboardingStore} from '@stores';
 import {navigationRef} from '../utils/navigate';
 import {NAVIGATION_COLORS} from '@config/base';
 
@@ -18,10 +13,6 @@ const navigations = [
   {
     name: Navigations.Onboarding,
     component: Onboarding,
-  },
-  {
-    name: Navigations.Auth,
-    component: AuthNavigation,
   },
   {
     name: Navigations.Main,
@@ -36,13 +27,9 @@ class RootNavigation extends Component {
   render(): ReactElement {
     const {showOnboarding} = onboardingStore;
 
-    const isAuthorized = authStore.isAuthorized;
-
     const firstScreen = showOnboarding
       ? Navigations.Onboarding
-      : isAuthorized
-      ? Navigations.Main
-      : Navigations.Auth;
+      : Navigations.Main;
 
     return (
       <>

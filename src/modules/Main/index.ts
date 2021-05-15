@@ -1,21 +1,26 @@
 import {Navigations} from '@types';
 import {StackGenerator} from '@utils';
-import BottomBar from './BottomBar';
-import Rating from './Rating';
-import VideoClip from './VideoClip';
+import Home from './Home';
+import Search from './Search';
+import Favorites from './Favorites';
+import History from './History';
 
 const navigations = [
   {
-    name: Navigations.Main_BottomBar,
-    component: BottomBar,
+    name: Navigations.Main_Home,
+    component: Home,
   },
   {
-    name: Navigations.Main_Rating,
-    component: Rating,
+    name: Navigations.Main_Search,
+    component: Search,
   },
   {
-    name: Navigations.Main_VideoClip,
-    component: VideoClip,
+    name: Navigations.Main_Favorites,
+    component: Favorites,
+  },
+  {
+    name: Navigations.Main_History,
+    component: History,
   },
 ];
 

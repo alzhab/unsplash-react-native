@@ -1,0 +1,103 @@
+{
+  "colors": {
+    "PRIMARY": {
+      "MAIN": "#E09178",
+      "SECOND": "#E09178",
+      "TRETIARY": "#E09178"
+    },
+    "BG": {
+      "MAIN": "#FFFFFF",
+      "SECOND": "#ECECEC",
+      "TRETIARY": "#FFFDFA"
+    },
+    "TEXT": {
+      "MAIN": "#615750",
+      "SECOND": "#BBB9BB",
+      "TRETIARY": "#fff"
+    },
+    "BORDER": {
+      "MAIN": "#EEEEEE",
+      "SECOND": "#F2F2F2",
+      "TRETIARY": "#F2F2F2"
+    },
+    "OTHER": {
+      "ERROR": "#e20e00",
+      "SUCCESS": "#3ebf35"
+    }
+  },
+  "navigation": [
+    {
+      "name": "Onboarding"
+    },
+    {
+      "name": "Auth",
+      "routes": [
+        {
+          "name": "Signin"
+        },
+        {
+          "name": "Signup"
+        }
+      ]
+    },
+    {
+      "name": "Main",
+      "routes": [
+        {
+          "name": "BottomBar",
+          "type": "bottombar",
+          "routes": [
+            {
+              "name": "Home_Stack",
+              "Icon": "HomeIcon",
+              "title": "My Feed",
+              "routes": [
+                {
+                  "name": "Home"
+                },
+                {
+                  "name": "Search"
+                },
+                {
+                  "name": "Filter"
+                },
+                {
+                  "name": "SearchResult"
+                }
+              ]
+            },
+            {
+              "name": "Favorites",
+              "Icon": "HeartIcon",
+              "title": "Favorites"
+            },
+            {
+              "name": "ShoppingList",
+              "title": "Shopping List",
+              "Icon": "ListIcon"
+            },
+            {
+              "name": "Account",
+              "title": "Account",
+              "Icon": "UserIcon",
+              "routes": [
+                {
+                  "name": "Profile"
+                },
+                {
+                  "name": "Settings"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Rating"
+        },
+        {
+          "name": "VideoClip"
+        }
+      ]
+    }
+  ]
+}

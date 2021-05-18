@@ -23,5 +23,5 @@ export const NAVIGATION_COLORS = {
 export const STATUSBAR_PROPS: StatusBarProps = {
   translucent: Platform.OS === 'android',
   backgroundColor: Platform.OS === 'ios' ? COLORS.PRIMARY.MAIN : 'transparent',
-  barStyle: 'dark-content',
+  barStyle: 'light-content',
 };

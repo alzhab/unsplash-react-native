@@ -4,7 +4,7 @@ import {TouchableOpacity} from 'react-native';
 import {boxShadow, horizontalScale} from '@config/mixins';
 import {COLORS} from '@config/base';
 import {Flex, Text} from '../../atoms';
-import {ButtonTypes, TextAlign, TextFamily} from '@types';
+import {AI, ButtonTypes, JC, TextAlign, TextFamily} from '@types';
 import {padding} from '@utils';
 
 const Index = ({
@@ -20,13 +20,9 @@ const Index = ({
   children,
   color: propsColor,
   activeOpacity,
-  borderRad,
   paddings,
 }: ButtonProps): ReactElement => {
-  let shadowColor = COLORS.PRIMARY.MAIN;
-
   const defaultStyles: ButtonStylesInterface = {
-    borderRadius: borderRad ? horizontalScale(borderRad) : horizontalScale(5),
     alignItems: 'center',
     justifyContent: 'center',
   };
@@ -36,32 +32,19 @@ const Index = ({
   switch (type) {
     case ButtonTypes.PRIMARY:
       color = COLORS.TEXT.TRETIARY;
-      defaultStyles.backgroundColor = COLORS.PRIMARY.MAIN;
       break;
     case ButtonTypes.DISABLED:
-      shadowColor = COLORS.BG.SECOND;
       color = COLORS.TEXT.SECOND;
-      defaultStyles.backgroundColor = COLORS.BG.SECOND;
       break;
     case ButtonTypes.EMPTY:
-      shadowColor = 'transparent';
-      defaultStyles.backgroundColor = 'transparent';
-      defaultStyles.borderWidth = 0;
-      defaultStyles.borderColor = 'transparent';
       color = COLORS.TEXT.MAIN;
-      break;
-    case ButtonTypes.BORDERED:
-      defaultStyles.backgroundColor = 'transparent';
-      defaultStyles.borderWidth = 1;
-      defaultStyles.borderColor = COLORS.PRIMARY.MAIN;
-      color = COLORS.PRIMARY.MAIN;
       break;
   }
 
   return (
     <TouchableOpacity
       disabled={type === ButtonTypes.DISABLED}
-      activeOpacity={activeOpacity ? activeOpacity : 0.9}
+      activeOpacity={activeOpacity ? activeOpacity : 0.5}
       onPress={() => {
         if (type !== ButtonTypes.DISABLED) {
           click();
@@ -72,7 +55,6 @@ const Index = ({
           width: full ? '100%' : null,
           flexDirection: 'row',
         },
-        boxShadow(shadowColor),
         defaultStyles,
         styles,
         padding(paddings || {top: 18, right: 15}),

@@ -4,7 +4,7 @@ import {IconProps} from '@types';
 import {COLORS} from '@config/base';
 
 const Icon = (props: IconProps & {active?: boolean}): ReactElement => {
-  const color = props.color || COLORS.TEXT.MAIN;
+  const color = props.color || COLORS.TEXT.SECOND;
 
   const size = props.sizeHeight;
   const width = 12;

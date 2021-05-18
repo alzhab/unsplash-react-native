@@ -8,3 +8,4 @@ export {default as openPhone} from './openPhone';
 export {default as navigate} from './navigate';
 export {default as padding} from './padding';
 export * from './getFile';
+export * from './imageSize';

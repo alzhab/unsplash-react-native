@@ -15,7 +15,6 @@ export interface ButtonProps {
   children?: any;
   color?: string;
   activeOpacity?: number;
-  borderRad?: number;
   paddings?: {
     top: number;
     right?: number;
@@ -27,7 +26,6 @@ export interface ButtonProps {
 export interface ButtonStylesInterface {
   width?: string;
   backgroundColor?: string;
-  borderRadius: number;
   borderWidth?: number;
   borderColor?: string;
   justifyContent?:

@@ -1,6 +1,6 @@
 import React, {ReactElement, useState} from 'react';
 import FastImage, {Source} from 'react-native-fast-image';
-import LoadingSmall from '../../molecules/LoadingSmall';
+import {Skeletons} from '@components';
 
 const Image = (props: {
   style?: any;
@@ -19,7 +19,9 @@ const Image = (props: {
         source={props.source}
         tintColor={props.tintColor}
         resizeMode={FastImage.resizeMode[props.resizeMode || 'cover']}>
-        <LoadingSmall show={load} />
+        {load && props.style && props.style.height && (
+          <Skeletons height={props.style.height} />
+        )}
       </FastImage>
     </>
   );

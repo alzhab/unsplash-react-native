@@ -1,13 +1,33 @@
-import React from 'react';
-import {Flex, Text} from '@components';
-import {AI, JC} from '@types';
+import React, {useEffect} from 'react';
+import {GridList} from '@components';
+import {favoritesStore, photosStore} from '@stores';
+import {observer} from 'mobx-react';
 
 const Home = () => {
+  useEffect(() => {
+    photosStore.init();
+  }, []);
+  
+  useEffect(() => {
+    if (photosStore.searchSuccess) {
+      photosStore.refresh()
+    }
+  }, [photosStore.searchSuccess]);
+
   return (
-    <Flex size={1} full ai={AI.center} jc={JC.center}>
-      <Text>Home</Text>
-    </Flex>
+    <>
+      {!photosStore.photosInitLoading && (
+        <GridList
+          refreshLoading={photosStore.photosRefreshLoading}
+          refresh={photosStore.refresh}
+          data={photosStore.photos}
+          loadMore={photosStore.loadMore}
+          moreLoading={photosStore.photosMoreLoading}
+          like={favoritesStore.toogleLike}
+        />
+      )}
+    </>
   );
 };
 
-export default Home;
+export default observer(Home);

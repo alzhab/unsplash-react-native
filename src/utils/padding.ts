@@ -1,6 +1,6 @@
 const padding = ({
   top = 20,
-  right = 16,
+  right,
   bottom,
   left,
 }: {

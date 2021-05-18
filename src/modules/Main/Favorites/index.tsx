@@ -1,13 +1,17 @@
 import React from 'react';
-import {Flex, Text} from '@components';
-import {AI, JC} from '@types';
+import {GridList} from '@components';
+import {favoritesStore} from '@stores';
+import {observer} from 'mobx-react';
 
 const Favorites = () => {
   return (
-    <Flex size={1} full ai={AI.center} jc={JC.center}>
-      <Text>Favorites</Text>
-    </Flex>
+    <>
+      <GridList
+        data={favoritesStore.favoritePhotos.slice().reverse()}
+        like={favoritesStore.toogleLike}
+      />
+    </>
   );
 };
 
-export default Favorites;
+export default observer(Favorites);

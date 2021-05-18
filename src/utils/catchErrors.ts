@@ -1,5 +1,3 @@
-import noticeMessageStore, {NoticeTypeEnum} from '../stores/NoticeMessageStore';
-
 const storeCatchError = (error: any, call?: () => void) => {
   if (error.response) {
     console.log('error: ', error);
@@ -12,7 +10,7 @@ const storeCatchError = (error: any, call?: () => void) => {
     call();
   }
 
-  noticeMessageStore.showMessage(error.message, NoticeTypeEnum.error);
+  console.log('=========ERROR: ', error.message);
 };
 
 export default {

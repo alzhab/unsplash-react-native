@@ -4,11 +4,11 @@ import {IconProps} from '@types';
 import {COLORS} from '@config/base';
 
 const Icon = (props: IconProps): ReactElement => {
-  const color = props.color || COLORS.TEXT.MAIN;
+  const color = props.color || COLORS.TEXT.SECOND;
 
   const size = props.sizeHeight;
-  const width = 13;
-  const height = 12;
+  const width = 23;
+  const height = 21;
   const scaleHeight = size ? +(size / height) : 1;
   const scaleWidth = size ? +(size / width) : 1;
 
@@ -18,10 +18,8 @@ const Icon = (props: IconProps): ReactElement => {
       height={height * scaleHeight}
       viewBox={`0 0 ${width} ${height}`}>
       <Path
-        d="M6.084,11.822,1.119,6.713a4.017,4.017,0,0,1,0-5.563L1.23,1.04a3.734,3.734,0,0,1,5.28.109L6.5,1.139l.1-.1a3.732,3.732,0,0,1,5.169,0l.111.109a4.017,4.017,0,0,1,0,5.563l-4.966,5.11a.575.575,0,0,1-.831,0Z"
-        transform="translate(0 0)"
+        d="M13.0521 20.2443C12.1784 21.0597 10.8334 21.0597 9.95977 20.2325L9.83331 20.1143C3.79813 14.501 -0.144849 10.8257 0.00459342 6.24047C0.0735669 4.23147 1.07368 2.30521 2.69456 1.17072C5.72939 -0.956453 9.47695 0.0362259 11.5002 2.47065C13.5234 0.0362259 17.271 -0.96827 20.3058 1.17072C21.9267 2.30521 22.9268 4.23147 22.9958 6.24047C23.1567 10.8257 19.2022 14.501 13.167 20.138L13.0521 20.2443Z"
         fill={color}
-        
       />
     </Svg>
   );

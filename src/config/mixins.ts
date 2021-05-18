@@ -1,6 +1,5 @@
 import {Dimensions, PixelRatio} from 'react-native';
 import {COLORS} from '@config/base';
-import {number} from 'prop-types';
 
 export const WINDOW_WIDTH = Dimensions.get('window').width;
 export const WINDOW_HEIGHT = Dimensions.get('window').height;

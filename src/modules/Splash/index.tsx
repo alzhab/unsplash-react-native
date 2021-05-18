@@ -6,8 +6,7 @@ import {COLORS} from '@config/base';
 import {StyleSheet} from 'react-native';
 import {WINDOW_HEIGHT} from '@config/mixins';
 
-const Splash = ({show}: { show: boolean }): ReactElement => {
-  
+const Splash = ({show}: {show: boolean}): ReactElement => {
   return (
     <AnimateItTiming
       remove
@@ -17,30 +16,30 @@ const Splash = ({show}: { show: boolean }): ReactElement => {
         {
           justifyContent: 'center',
           alignItems: 'center',
-          backgroundColor: COLORS.BG.MAIN
+          backgroundColor: COLORS.BG.SECOND,
         },
       ]}
-      interpolations={[{
-        name: 'translateY',
-        outputRange: [WINDOW_HEIGHT, 0],
-        dir: 'from'
-      }, {
-        name: 'opacity',
-        outputRange: [0, 1],
-        dir: 'both'
-      }]}
-    >
-      <Flex animated
-            ai={AI.center}
-            jc={JC.center}
-            size={1}>
+      interpolations={[
+        {
+          name: 'translateY',
+          outputRange: [WINDOW_HEIGHT, 0],
+          dir: 'from',
+        },
+        {
+          name: 'opacity',
+          outputRange: [0, 1],
+          dir: 'both',
+        },
+      ]}>
+      <Flex animated ai={AI.center} jc={JC.center} size={1}>
         <LottieView
           style={{
-            width: '80%'
+            width: '80%',
           }}
           source={require('@assets/lottie/onboarding-load.json')}
           autoPlay
-          loop/>
+          loop
+        />
       </Flex>
     </AnimateItTiming>
   );

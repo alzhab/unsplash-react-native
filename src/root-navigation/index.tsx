@@ -4,15 +4,18 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {Navigations} from '@types';
 import {MainNavigation, Onboarding} from '@modules';
 import {observer} from 'mobx-react';
-import {Message, Modal} from '@components';
-import {modalStore, noticeMessageStore, onboardingStore} from '@stores';
+import {onboardingStore} from '@stores';
 import {navigationRef} from '../utils/navigate';
 import {NAVIGATION_COLORS} from '@config/base';
+import {Header} from '@components';
 
 const navigations = [
   {
     name: Navigations.Onboarding,
     component: Onboarding,
+    options: {
+      headerShown: false,
+    },
   },
   {
     name: Navigations.Main,
@@ -40,7 +43,9 @@ class RootNavigation extends Component {
             colors: NAVIGATION_COLORS,
           }}>
           <Stack.Navigator
-            headerMode={'none'}
+            screenOptions={{
+              header: (props) => <Header />,
+            }}
             initialRouteName={
               showOnboarding ? Navigations.Onboarding : firstScreen
             }>
@@ -49,19 +54,11 @@ class RootNavigation extends Component {
                 key={route.name}
                 name={route.name}
                 component={route.component}
+                options={route.options || {}}
               />
             ))}
           </Stack.Navigator>
         </NavigationContainer>
-
-        <Message
-          show={noticeMessageStore.show}
-          text={noticeMessageStore.text}
-          type={noticeMessageStore.type}
-        />
-        <Modal open={modalStore.modalProps.show} close={modalStore.closeModal}>
-          {modalStore.modalProps.children()}
-        </Modal>
       </>
     );
   }

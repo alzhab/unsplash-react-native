@@ -17,7 +17,7 @@ const Onboarding = (): ReactElement => {
 
   const hide = () => {
     onboardingStore.hideIntro();
-    navigate(Navigations.Auth);
+    navigate(Navigations.Main);
   };
 
   const _renderItem = ({item}: {item: ISlide}) => {

@@ -31,3 +31,8 @@ export {default as StarIcon} from './star.icon';
 export {default as ClockIcon} from './clock.icon';
 export {default as FacebookIcon} from './facebook.icon';
 export {default as ListIcon} from './list.icon';
+export {default as UnsplashIcon} from './unsplash.icon';
+export {default as HistoryIcon} from './history.icon';
+export {default as ListSortIcon} from './list-sort.icon';
+export {default as GridSortIcon} from './grid-sort.icon';
+export {default as ArrowUpIcon} from './arrow-up.icon';

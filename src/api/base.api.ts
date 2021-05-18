@@ -9,6 +9,12 @@ export interface BaseEntity {
   updated_at: Date;
 }
 
+export interface Pagination {
+  page?: number;
+  per_page?: number;
+  order_by?: 'latest' | 'oldest' | 'popular';
+}
+
 export class BaseApi<T, C = T, P = T> {
   readonly api: string;
 
@@ -16,18 +22,22 @@ export class BaseApi<T, C = T, P = T> {
     this.api = `${API}/${path}`;
   }
 
-  async getAll(options?: FindManyOptions<T>): Promise<T[]> {
-    return axios.get(`${this.api}`, {
-      headers: this.getHeaders(),
-      params: this.getParams(options),
-    });
+  async getAll(options?: Pagination): Promise<T[]> {
+    return axios
+      .get(`${this.api}`, {
+        headers: this.getHeaders(),
+        params: this.getParams(options),
+      })
+      .then((res) => res.data);
   }
 
-  async getById(id: number, options?: FindOneOptions<T>): Promise<T> {
-    return axios.get(`${this.api}/${id}`, {
-      headers: this.getHeaders(),
-      params: this.getParams(options),
-    });
+  async getById(id: number, options?: Pagination): Promise<T> {
+    return axios
+      .get(`${this.api}/${id}`, {
+        headers: this.getHeaders(),
+        params: this.getParams(options),
+      })
+      .then((res) => res.data);
   }
 
   async post(data: C, options?: SaveOptions): Promise<T> {
@@ -61,12 +71,19 @@ export class BaseApi<T, C = T, P = T> {
   }
 
   getParams(options: any = null) {
+    const unsplashApi = {
+      client_id: 'DL6KfFN3GN67Jb7hYg8rqyRbD6B0y2xZL5Rzai2jUKg',
+    };
+
     if (options) {
       return {
-        filter: JSON.stringify(options),
+        ...options,
+        ...unsplashApi,
       };
     } else {
-      return {};
+      return {
+        ...unsplashApi,
+      };
     }
   }
 }

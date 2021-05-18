@@ -8,6 +8,7 @@ export interface InputProps {
     | 'number-pad'
     | 'decimal-pad';
   onChange?: (val: string) => void;
+  onSubmit?: () => void;
   secureTextEntry?: boolean;
   mask?: string;
   value?: string;

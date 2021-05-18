@@ -4,3 +4,8 @@ export enum ButtonTypes {
   EMPTY = 'EMPTY',
   DISABLED = 'DISABLED',
 }
+
+export enum SortButtonsTypes {
+  list = 'LIST',
+  grid = 'GRID',
+}

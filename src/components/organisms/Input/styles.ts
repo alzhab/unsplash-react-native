@@ -1,15 +1,15 @@
 import {StyleSheet} from 'react-native';
-import {scaleFont, horizontalScale} from '@config/mixins';
-import {TextFamily} from '@types';
+import {scaleFont, horizontalScale, verticalScale} from '@config/mixins';
+import {AI, TextFamily} from '@types';
+import {COLORS} from '@config/base';
 
 export const styles = StyleSheet.create({
   inputStyle: {
     width: '100%',
-    fontSize: scaleFont(14),
-    fontFamily: TextFamily.BOLD,
-    paddingVertical: horizontalScale(14),
-    paddingHorizontal: 0,
-    backgroundColor: 'transparent',
-    borderBottomWidth: 2,
+    fontSize: scaleFont(36),
+    paddingTop: verticalScale(28),
+    paddingBottom: verticalScale(20),
+    textAlign: AI.center,
+    color: COLORS.TEXT.SECOND,
   },
 });
